@@ -1,0 +1,11 @@
+/**
+ * Created by garima.kaila on 2017-04-14.
+ */
+
+module.exports = {
+    REQUEST_MOVIES: 'REQUEST_MOVIES',
+    RECEIVE_MOVIES: 'RECEIVE_MOVIES',
+    ERROR_FETCHING_MOVIES: 'ERROR_FETCHING_MOVIES',
+    FETCH_MOVIES: 'FETCH_MOVIES',
+    LOGIN: "LOGIN"
+};
