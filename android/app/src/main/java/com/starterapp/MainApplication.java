@@ -3,9 +3,12 @@ package com.starterapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.lwansbrough.RCTCamera.RCTCameraPackage;
+import com.joshblour.reactnativepermissions.ReactNativePermissionsPackage;
+import com.eguma.barcodescanner.BarcodeScannerPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.magus.fblogin.FacebookLoginPackage;
-import com.reactlibrary.googlesignin.RNGoogleSignInPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -26,8 +29,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RCTCameraPackage(),
+            new ReactNativePermissionsPackage(),
+            new BarcodeScannerPackage(),
+            new RNGoogleSigninPackage(),
             new VectorIconsPackage(),
-            new RNGoogleSignInPackage(),
             new FacebookLoginPackage()
       );
     }

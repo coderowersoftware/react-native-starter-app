@@ -5,11 +5,13 @@
 
 import React, {Component} from 'react';
 import {
+    AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    TouchableHighlight
 } from 'react-native';
-import GoogleSignIn from 'react-native-google-sign-in';
+import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Button from './Button';
 
@@ -19,7 +21,7 @@ var {
 } = require('../../actions/login-actions');
 
 
-const CLIENT_ID = '141822293497-ldn829khpl2qlmtek7qq3ckalm4u8gmg.apps.googleusercontent.com';
+const CLIENT_ID = '631502754148-qooj2e4ljac1u9qpi5bm4n14fbgtorji.apps.googleusercontent.com';
 class GoogleSignInButton extends React.Component {
     constructor(props) {
         super(props);
@@ -29,10 +31,12 @@ class GoogleSignInButton extends React.Component {
     }
 
     componentDidMount() {
+        this._setupGoogleSignin()
         Store.subscribe(() => {
             this.setState({
                 userDetails: Store.getState().login.userDetails
             });
+            //alert(JSON.stringify(Store.getState().login.userDetails, null, '  '));
         });
     }
 
@@ -55,6 +59,27 @@ class GoogleSignInButton extends React.Component {
             </View>)
         } else {
             return (<View>
+{/*                <TouchableHighlight onPress={async () => {
+          await GoogleSignIn.configure({
+            clientID: CLIENT_ID,
+            scopes: ['openid', 'email', 'profile'],
+            shouldFetchBasicProfile: true,
+          });
+
+          const user = await GoogleSignIn.signInPromise();
+          setTimeout(() => {
+              let userInfo = {id:user.userID,email:user.email,name:user.name,image:user.photoUrlTiny}
+               Store.dispatch(loginSuccess(userInfo));
+            alert(JSON.stringify(userInfo, null, '  '));
+          }, 1500);
+        }}>
+
+                    <View style={styles.inline}>
+                        <Icon name="google-plus" size={30} color="#3B5699"/>
+                        <Text style={styles.loginButton}>Google Sign-In </Text>
+                    </View>
+
+                </TouchableHighlight>*/}
                 <Button
                     styles={{button: styles.transparentButton}}
                     onPress={this._press.bind(this)}
@@ -70,18 +95,41 @@ class GoogleSignInButton extends React.Component {
 
     }
 
-    _press = async() => {
-        await GoogleSignIn.configure({
-            clientID: CLIENT_ID,
-            scopes: ['openid', 'email', 'profile'],
-            shouldFetchBasicProfile: true,
-        });
+    async _setupGoogleSignin() {
+        try {
+            await GoogleSignin.hasPlayServices({ autoResolve: true });
+            await GoogleSignin.configure({
+                iosClientId:'631502754148-qooj2e4ljac1u9qpi5bm4n14fbgtorji.apps.googleusercontent.com',
+                webClientId:'631502754148-qooj2e4ljac1u9qpi5bm4n14fbgtorji.apps.googleusercontent.com',
+                offlineAccess: true
+            });
 
-        const user = await GoogleSignIn.signInPromise();
-        setTimeout(() => {
-            let userInfo = {provider:"google",id: user.userID, email: user.email, name: user.name, image: user.photoUrlTiny}
-            Store.dispatch(loginSuccess(userInfo));
-        }, 1500);
+            const user = await GoogleSignin.currentUserAsync();
+            console.log(user);
+            this.setState({user});
+        }
+        catch(err) {
+            console.log("Play services error", err.code, err.message);
+        }
+    }
+
+    _signIn() {
+        console.log('clicked');
+        GoogleSignin.signIn()
+            .then((user) => {
+                console.log(user);
+                let userInfo = {provider:"google",id: user.userID, email: user.email, name: user.name, image: user.photoUrlTiny}
+                Store.dispatch(loginSuccess(userInfo));
+                alert(JSON.stringify(userInfo, null, '  '));
+            })
+            .catch((err) => {
+                console.log('WRONG SIGNIN', err);
+            })
+            .done();
+    }
+
+    _press = async() => {
+        this._signIn()
     }
 }
 const styles = StyleSheet.create({

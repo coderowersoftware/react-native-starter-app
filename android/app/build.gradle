@@ -83,13 +83,13 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
 
     defaultConfig {
         applicationId "com.starterapp"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         ndk {
@@ -135,13 +135,14 @@ android {
 }
 
 dependencies {
-    compile(project(":react-native-google-sign-in")) { // ADD this
-            exclude group: "com.google.android.gms"
-        }
+    compile project(':react-native-camera')
+    compile project(':react-native-permissions')
+    compile project(':react-native-barcodescanner')
+    compile project(':react-native-google-signin')
     compile project(':react-native-facebook-login')
     compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:23.0.1"
-    compile "com.google.android.gms:play-services-auth:10.0.1"
+    compile "com.android.support:appcompat-v7:25.3.1"
+    compile "com.google.android.gms:play-services-auth:10.2.6"
     compile "com.facebook.react:react-native:+"  // From node_modules
     compile project(':react-native-vector-icons')
 }

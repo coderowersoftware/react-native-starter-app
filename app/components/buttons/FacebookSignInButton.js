@@ -5,9 +5,11 @@
 
 import React, {Component} from 'react';
 import {
+    AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    TouchableHighlight
 } from 'react-native';
 
 import {FBLogin, FBLoginManager} from 'react-native-facebook-login';
@@ -33,6 +35,8 @@ class FacebookSignInButton extends React.Component {
             this.setState({
                 userDetails: Store.getState().login.userDetails
             });
+
+            //   alert("hello " + JSON.stringify(Store.getState().login.userDetails, null, '  '));
         });
     }
 
@@ -75,6 +79,7 @@ class FacebookSignInButton extends React.Component {
                             let userInfo = {provider:"facebook",id:user.credentials.userId,email:user.profile.email,name:user.profile.name,image:user.profile.picture.data.url}
                             Store.dispatch(loginSuccess(userInfo));
                     },1500);
+                 //   alert(JSON.stringify(userInfo, null, '  '));
                 }}
                     onLoginFound={function(e){console.log(e)}}
                     onError={function(e){console.log(e)}}

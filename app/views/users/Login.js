@@ -12,6 +12,7 @@ import {
 var LoginForm = require('../../components/users/LoginForm');
 
 var GoogleSignInButton = require('../../components/buttons/GoogleSignInButton');
+
 var FacebookSignInButton = require('../../components/buttons/FacebookSignInButton');
 
 var Container = require('../../components/layout/Container');
@@ -25,6 +26,7 @@ import {
 } from 'react-navigation';
 
 import Store from '../../store/Store';
+
 class LoginScreen extends React.Component {
 
     componentDidMount() {
@@ -51,20 +53,22 @@ class LoginScreen extends React.Component {
         headerVisible: false
     };
 
+
+
     render() {
         return (
             <View style={{flex: 1}}>
                 <Container>
                     <LoginForm></LoginForm>
                     <FormControl>
-                        <GoogleSignInButton></GoogleSignInButton>
+                        <GoogleSignInButton/>
                     </FormControl>
                     <FormControl>
-                        <FacebookSignInButton></FacebookSignInButton>
+                        <FacebookSignInButton/>
                     </FormControl>
                     <FormControl>
                         <Button
-                            onPress={() => this.props.navigation.navigate('SignUp')}
+                            onPress={() => this.props.navigation.navigate('Movies')}
                             title="Not joined yet? Sign Up!"
                         />
                     </FormControl>

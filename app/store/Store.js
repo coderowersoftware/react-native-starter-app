@@ -8,6 +8,5 @@ import thunk from 'redux-thunk';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 console.log(store.getState());
-console.log("Ishaan");
 export default store;
 
