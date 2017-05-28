@@ -52,3 +52,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 Docs/
+ios/Pods/
+ios/FBSDKLoginKit.framework/
+ios/FBSDKCoreKit.framework/
+ios/FBSDKShareKit.framework/
