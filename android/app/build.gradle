@@ -83,6 +83,9 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
+	dexOptions {
+        jumboMode true
+    }
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
 
