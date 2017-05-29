@@ -48,12 +48,12 @@ const App = StackNavigator({
     Movies: {screen: MoviesList}
 });
 
-const StarterApp = DrawerNavigator({
+const ReactNativeStarterApp = DrawerNavigator({
     Home: {screen: App},
     About: {screen: AboutScreen},
     Scanner: {screen: BarcodeScanner}
 })
 
 
-module.exports = StarterApp;
+module.exports = ReactNativeStarterApp;
 

@@ -1,29 +1,29 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'StarterApp' do
+target 'ReactNativeStarterApp' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
    use_frameworks!
 	pod 'Google/SignIn'
 
-  # Pods for StarterApp
+  # Pods for ReactNativeStarterApp
 
-  target 'StarterApp-tvOSTests' do
+  target 'ReactNativeStarterApp-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'StarterAppTests' do
+  target 'ReactNativeStarterAppTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
 end
 
-target 'StarterApp-tvOS' do
+target 'ReactNativeStarterApp-tvOS' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
-  # Pods for StarterApp-tvOS
+  # Pods for ReactNativeStarterApp-tvOS
 
 end
