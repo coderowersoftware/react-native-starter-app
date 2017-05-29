@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">StarterApp</string>
+    <string name="app_name">React Native Starter App</string>
     <string name="fb_app_id">290504014718674</string>
     <string name="fb_login_protocol_scheme">fb290504014718674</string>
 </resources>

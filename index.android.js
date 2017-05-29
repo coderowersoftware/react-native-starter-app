@@ -34,7 +34,7 @@ var FacebookSignInButton = require('./app/components/buttons/FacebookSignInButto
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import StarterApp from "./app/App"
+import ReactNativeStarterApp from "./app/App"
 
 import Store from './app/store/Store';
 /*
@@ -57,7 +57,7 @@ var styles = StyleSheet.create({
 });
 
 
-export default class StarterApp extends Component {
+export default class ReactNativeStarterApp extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     },
 });
 
-const StarterApp = DrawerNavigator({
+const ReactNativeStarterApp = DrawerNavigator({
     Home: {
         screen: MyHomeScreen,
     },
@@ -152,4 +152,4 @@ const StarterApp = DrawerNavigator({
 });
 */
 
-AppRegistry.registerComponent('StarterApp', () => StarterApp);
+AppRegistry.registerComponent('ReactNativeStarterApp', () => ReactNativeStarterApp);
