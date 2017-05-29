@@ -145,6 +145,7 @@ dependencies {
     compile "com.google.android.gms:play-services-auth:10.2.6"
     compile "com.facebook.react:react-native:+"  // From node_modules
     compile project(':react-native-vector-icons')
+	compile project(':react-native-google-analytics-bridge')
 }
 apply plugin: "com.google.gms.google-services"
 

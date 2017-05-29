@@ -3,6 +3,7 @@ package com.reactnativestarterapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.joshblour.reactnativepermissions.ReactNativePermissionsPackage;
 import com.eguma.barcodescanner.BarcodeScannerPackage;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new GoogleAnalyticsBridgePackage(),
             new RCTCameraPackage(),
             new ReactNativePermissionsPackage(),
             new BarcodeScannerPackage(),
