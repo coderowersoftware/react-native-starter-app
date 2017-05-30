@@ -20,7 +20,7 @@ import LoginScreen from "./views/users/Login";
 import SignUpScreen from "./views/users/SignUp";
 import AboutScreen from "./views/about/About";
 import BarcodeScanner from "./views/scanner/ScanScreen";
-
+import Notification from "./views/notification/Firebase";
 
 const styles = StyleSheet.create({
     icon: {
@@ -51,7 +51,8 @@ const App = StackNavigator({
 const ReactNativeStarterApp = DrawerNavigator({
     Home: {screen: App},
     About: {screen: AboutScreen},
-    Scanner: {screen: BarcodeScanner}
+    Scanner: {screen: BarcodeScanner},
+    Notification:{screen: Notification}
 })
 
 

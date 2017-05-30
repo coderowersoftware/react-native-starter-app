@@ -149,6 +149,8 @@ dependencies {
     compile "com.facebook.react:react-native:+"  // From node_modules
     compile project(':react-native-vector-icons')
 	compile project(':react-native-google-analytics-bridge')
+	compile project(':react-native-fcm')
+    compile 'com.google.firebase:firebase-core:10.0.1' //this decides your firebase SDK version
 }
 apply plugin: "com.google.gms.google-services"
 

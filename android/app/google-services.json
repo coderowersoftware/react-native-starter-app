@@ -1,7 +1,9 @@
 {
   "project_info": {
     "project_number": "179968075348",
-    "project_id": "react-native-starter-app-d2dc1"
+    "firebase_url": "https://react-native-starter-app-d2dc1.firebaseio.com",
+    "project_id": "react-native-starter-app-d2dc1",
+    "storage_bucket": "react-native-starter-app-d2dc1.appspot.com"
   },
   "client": [
     {
@@ -12,6 +14,10 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "179968075348-mmv5h11i2be24atqpkoip2ah60suu2gf.apps.googleusercontent.com",
+          "client_type": 3
+        },
         {
           "client_id": "179968075348-7pv046isaoo2uvlhfepl7d00gh8fr4hv.apps.googleusercontent.com",
           "client_type": 1,
@@ -38,11 +44,16 @@
           }
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179968075348-mmv5h11i2be24atqpkoip2ah60suu2gf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }

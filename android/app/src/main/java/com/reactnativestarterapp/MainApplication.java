@@ -3,6 +3,7 @@ package com.reactnativestarterapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.evollu.react.fcm.FIRMessagingPackage;
 import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.joshblour.reactnativepermissions.ReactNativePermissionsPackage;
@@ -30,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new FIRMessagingPackage(),
             new GoogleAnalyticsBridgePackage(),
             new RCTCameraPackage(),
             new ReactNativePermissionsPackage(),
