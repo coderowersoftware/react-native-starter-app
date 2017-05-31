@@ -6,6 +6,7 @@
 import React, {Component} from 'react';
 import {
     AsyncStorage,
+    TouchableHighlight,
     View,
     Text
 }  from 'react-native';
@@ -13,7 +14,8 @@ import {
 import {
     NavigationActions
 } from 'react-navigation';
-var STORAGE_KEY = "@setting";
+var STORAGE_KEY = "@counter";
+var self;
 class StorageView extends React.Component {
     async getCache(key) {
         try {
@@ -26,39 +28,38 @@ class StorageView extends React.Component {
         }
     }
 
-    async setCache(key, value) {
-        try {
-            let value = AsyncStorage.setItem(key, value);
-            return value;
-        }
-        catch (e) {
-            console.log('caught error', e);
-            // Handle exceptions
-        }
-    }
 
     constructor(props) {
         super(props);
         self = this;
-        let value = "";
-        this.getCache(STORAGE_KEY).then((val) => {
-            value = val;
-            if (value !== null) {
-                value = "from storage" + value;
-                this.setState({
+        self.getCache(STORAGE_KEY).then((val) => {
+
+            if (val !== null) {
+                value = val;
+                self.setState({
                     data: value
                 });
-            } else {
-                AsyncStorage.setItem(STORAGE_KEY, "Hello storage");
-
-
             }
         });
 
-
         this.state = {
-            data: value
+            data: 0
         };
+    }
+
+    onPress() {
+        let value = 0;
+        self.getCache(STORAGE_KEY).then((val) => {
+
+            if (val !== null) {
+                value = val;
+                self.setState({
+                    data: value
+                });
+            }
+            value = value +1;
+            AsyncStorage.setItem(STORAGE_KEY,value.toString() );
+        });
     }
 
     render() {
@@ -66,6 +67,13 @@ class StorageView extends React.Component {
             <View >
                 <View>
                     <Text>{this.state.data}</Text>
+                    <TouchableHighlight
+                        underlayColor="#ccc"
+                        onPress={this.onPress}
+                    >
+                        <Text>Update Counter</Text>
+
+                    </TouchableHighlight>
                 </View>
             </View>
         );
