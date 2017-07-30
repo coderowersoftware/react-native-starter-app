@@ -40,7 +40,7 @@ var instructions = {
     }
 };
 
-var URL = 'http://192.168.43.144/';
+var URL = 'http://192.168.43.159:3000';
 class SpeakScreen extends React.Component {
 
     tokenizer(spokenText) {
@@ -80,12 +80,13 @@ class SpeakScreen extends React.Component {
             //More Locales will be available upon release.
             var spokenText = await SpeechAndroid.startSpeech("Hello, How can I help you?", lang);
 
-            var tokens = this.tokenizer(spokenText);
+            //var tokens = this.tokenizer(spokenText);
             // recognitions
-            if (tokens.length > 0) {
-                this.recognizerAndLogicalComander(tokens);
-            }
-            ToastAndroid.show("Instructions received: " + spokenText, ToastAndroid.LONG);
+            //if (tokens.length > 0) {
+            //    this.recognizerAndLogicalComander(tokens);
+            //}
+            fetch(URL+"?str="+spokenText);
+          //  ToastAndroid.show("Instructions received: " + spokenText, ToastAndroid.LONG);
         } catch (error) {
             switch (error) {
                 case SpeechAndroid.E_VOICE_CANCELLED:
@@ -119,6 +120,12 @@ class SpeakScreen extends React.Component {
                 <Button
                     onPress={() => this._buttonClick(SpeechAndroid.HINDI)}
                     title="हिंदी में"
+                />
+                <Text>.</Text>
+
+                <Button
+                    onPress={() => this._buttonClick(SpeechAndroid.SWEDISH)}
+                    title="SWEDISH"
                 />
             </View>
         );
